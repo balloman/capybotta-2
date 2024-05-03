@@ -1,12 +1,8 @@
-FROM oven/bun:latest as builder
+FROM oven/bun:1-alpine as builder
 
 WORKDIR /app
 COPY package.json .
 COPY bun.lockb .
 RUN bun install --production --frozen-lockfile
 COPY . .
-RUN bun run build
-
-FROM gcr.io/distroless/base-nossl
-COPY --from=builder /app/dist /app
-ENTRYPOINT ["/app/capybotta"]
+ENTRYPOINT [ "bun", "index.ts" ]

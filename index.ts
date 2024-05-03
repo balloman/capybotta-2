@@ -18,13 +18,11 @@ client.on("channelUpdate", async (oldChannel, newChannel) => {
     return;
   if (oldChannel.name !== CHANNEL_NAME || newChannel.name !== CHANNEL_NAME)
     return;
-  if (
-    oldChannel.parentId === IRRELEVANT_ID &&
-    newChannel.parentId !== IRRELEVANT_ID
-  ) {
-    console.log("Channel moved..., will remove in 2 seconds");
+  if (newChannel.parentId === null) {
+    console.log("Channel moved...will remove in 2 seconds");
     setTimeout(async () => {
       await newChannel.setParent(IRRELEVANT_ID);
+      console.log("Channel moved!");
     }, 2000);
   }
 });
