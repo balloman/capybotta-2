@@ -1,7 +1,5 @@
 import { ChannelType, Client } from "discord.js";
 
-console.log("Hello via Bun!");
-
 const IRRELEVANT_ID = "1230977045132214292";
 const CHANNEL_NAME = "music";
 
