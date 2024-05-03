@@ -1,5 +1,7 @@
 import { ChannelType, Client } from "discord.js";
 
+console.log("Starting Capybotta 2...");
+
 const IRRELEVANT_ID = "1230977045132214292";
 const CHANNEL_NAME = "music";
 
